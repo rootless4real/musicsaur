@@ -1,21 +1,17 @@
 ![Logo](http://rpiai.com/musicsaur/musicsaur1.png)
 
-# MusicSAUR (formerly the un-googleable "μsic")
+# musicsaur (formerly the un-googleable "μsic")
 ## Music Synchronization And Uniform Relaying
 [![Version 1.3](https://img.shields.io/badge/version-1.3-brightgreen.svg)]()
 [![Join the chat at https://gitter.im/schollz/musicsaur](https://badges.gitter.im/schollz/music.svg)](https://gitter.im/schollz/musicsaur?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ---
 
-**Update 12/26/2015: Version 1.3 released! Now includes Go and Python versions!**
+**Update X/X/X: Version 1.4 released! Now includes ??!**
 
 **Major features include (for all versions):**
 
-- Go version with [precompiled libraries](http://www.musicsaur.com) for folks that want to unzip and run!
-- Mute button
-- All files served locally (no internet connection needed!)
-- Replaying works now (it was broken in 1.2)
-- Playlist sorted by Artist/Album/Track (in order)
+- Better CSS for showing song lists
 
 ---
 
