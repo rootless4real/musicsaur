@@ -1,9 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"github.com/BurntSushi/toml"
+	"io/ioutil"
+	"log"
+	"os"
 	"sort"
+	"strings"
+
+	"github.com/BurntSushi/toml"
 )
 
 var conf tomlConfig
@@ -37,13 +41,23 @@ type serverParamaters struct {
 	Port                int
 	TimeToNextSong      int
 	TimeToDisallowSkips int
+	Random              bool
+	Ffmpeg              bool
 }
 
 func setupConfiguration() {
+	if _, err := os.Stat("config.cfg"); os.IsNotExist(err) {
+		dat, _ := ioutil.ReadFile("config-go.cfg")
+		musicPath := getInput("Enter full path to folder with music (e.g. C:/Users/Bob/My Music/): ")
+		configFile := strings.Replace(string(dat), "['/location/of/music/folder1','/location/of/music/folder2']", "['"+musicPath+"']", -1)
+		d1 := []byte(configFile)
+		ioutil.WriteFile("config.cfg", d1, 0644)
+	}
 	if _, err := toml.DecodeFile("config.cfg", &conf); err != nil {
-		fmt.Println(err)
+		log.Fatal(err)
 		return
 	}
+
 }
 
 // Data for state
@@ -61,6 +75,7 @@ type State struct {
 	IPAddress        string
 	Port             int
 	IndexPage        string
+	MusicExtension   string
 }
 
 // Data for Song
